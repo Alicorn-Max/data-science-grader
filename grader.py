@@ -1,6 +1,5 @@
 import ast 
 
-seconds_in_a_decade = 315532800
 def grade_question(question):
     with open("tests.txt", "r") as tests:
         for test in tests.readlines():
@@ -9,14 +8,14 @@ def grade_question(question):
                 test_check = test[1]
                 if "true"  in test_check[1] or "false" in test_check[1]:
                     if eval(test_check[0].strip(),globals()) == bool(test_check[1].replace("true","True").replace("false","False")):
-                        print("You passed :)")
+                        print("Correct!")
                     else:
-                        print("whoops, try again!")
+                        print("Whoops, there's a mistake.")
+                        print(test_check[0])
                 else:
                     if eval(test_check[0].strip(),globals()) == int(test_check[1]):
-                        print("You passed :)")
+                        print("Correct!")
                     else:
-                        print("whoops, try again!")
-
-
-grade_question("q3_1_2")
+                        print("whoops, try again.")
+                        print(test_check[0])
+                        

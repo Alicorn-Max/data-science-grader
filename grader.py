@@ -1,7 +1,7 @@
 import ast 
 
 def grade_question(question):
-    with open("tests.txt", "r") as tests:
+    with open("/content/data_science_grader/tests.txt", "r") as tests:
         for test in tests.readlines():
             test = ast.literal_eval(test)
             if test[0] == question:

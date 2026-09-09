@@ -12,10 +12,12 @@ def grade_question(question, vars):
                     else:
                         print("Whoops, there's a mistake.")
                         print(test_check[0])
+                        return
                 else:
-                    if eval(test_check[0].strip(),vars) == int(test_check[1]):
+                    if eval(test_check[0].strip(),vars) == float(test_check[1]):
                         print("Correct!")
                     else:
                         print("whoops, try again.")
                         print(test_check[0])
+                        return
                         

@@ -44,7 +44,3 @@ def grade_question(question, vars):
                     true_false_check(test_check, vars)
                 else:
                     float_check(test_check, vars)
-
-assignment = 'hw02'                  
-third_element = -6
-grade_question('q1_1', vars())

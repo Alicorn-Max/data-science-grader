@@ -22,7 +22,7 @@ def table_check(test_check, vars):
         return
 
 def grade_question(question, vars):
-    with open("tests.txt", "r") as tests: #CHANGE BACK TO /content/data_science_grader/tests.txt
+    with open("/content/data_science_grader/tests.txt", "r") as tests: 
         for test in tests.readlines():
             test = ast.literal_eval(test)
             identifier = test[0].split('-')

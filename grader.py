@@ -26,7 +26,6 @@ def grade_question(question, vars):
         for test in tests.readlines():
             test = ast.literal_eval(test)
             identifier = test[0].split('-')
-            print(identifier)
             if identifier[0] == vars['assignment'] and identifier[1] == question:
                 test_check = test[1]
                 if len(test_check[0]) > 1:

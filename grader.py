@@ -1,11 +1,19 @@
 import ast 
 
-def true_false_check(test_check, vars):
-    if eval(test_check[0][-1].strip(),vars) == bool(test_check[1][0]):
+def true_false_check(test_check, vars): #HW02 q2_1 doesnt work 
+    if str(eval(test_check[0][-1].strip(),vars)) == (test_check[1][0]):
         print("Correct!")
     else:
         print("Whoops, there's a mistake.")
         return
+    
+def multi_true_false_check(test_check, vars):
+    for check in zip(eval(test_check[0][-1], vars),eval(test_check[1][0], vars)):
+        if check[0] == check[1]:
+            print("Correct!")
+        else:
+            print("whoops, try again.")
+            return
     
 def float_check(test_check, vars):
     if eval(test_check[0][-1].strip(),vars) == float(test_check[1][0]):
@@ -15,14 +23,14 @@ def float_check(test_check, vars):
         return
 
 def table_check(test_check, vars):
-    if str(eval(test_check[0][-1].strip(),vars)) == test_check[1].join("\n"):
+    if str(eval(test_check[0][-1].strip(),vars)) == "\n".join(test_check[1]):
         print("Correct!")
     else:
         print("whoops, try again.")
         return
 
 def grade_question(question, vars):
-    with open("/content/data_science_grader/tests.txt", "r") as tests: 
+    with open("/content/data_science_grader/tests.txt", "r") as tests:
         for test in tests.readlines():
             test = ast.literal_eval(test)
             identifier = test[0].split('-')
@@ -33,13 +41,19 @@ def grade_question(question, vars):
                         exec(code, vars)
                     if len(test_check[1]) > 1:
                         table_check(test_check, vars)
-                    elif "True" in test_check[1][0] or "False" in test_check[1][0]:
+                    elif test_check[1][0].count("True") > 1 or test_check[1][0].count("False") > 1:
+                        multi_true_false_check(test_check, vars)
+                    elif "True" in test_check[1][0] or "False" in test_check[1][0]: 
                         true_false_check(test_check, vars)
                     else:
                         float_check(test_check, vars)
                 elif len(test_check[1]) > 1:
                     table_check(test_check, vars)
+                elif test_check[1][0].count("True") > 1 or test_check[1][0].count("False") > 1:
+                    multi_true_false_check(test_check, vars)
                 elif "True" in test_check[1][0] or "False" in test_check[1][0]:
                     true_false_check(test_check, vars)
                 else:
                     float_check(test_check, vars)
+
+

@@ -61,7 +61,7 @@
 ['hw02-q5_7', [['highPTER == True'], ['True']]]
 ['lab03-q11', [['woman_asking'], ["The woman asked:"]]]
 ['lab03-q11', [['gagarin_quote'], ['"As a matter of fact, I have!"']]]
-['lab03-q111', [['new_word'], ["'matchmaker'"]]]
+['lab03-q111', [['new_word'], ["matchmaker"]]]
 ['lab03-q121', [['abs(difference) == 30 or abs(difference) == 30.0'], ['True']]]
 ['lab03-q131', [['sentence_length'], ['896']]]
 ['lab03-q211', [['import numpy as np', 'type(interesting_numbers) == np.ndarray'], ['True']]]

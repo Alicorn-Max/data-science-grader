@@ -15,8 +15,8 @@ def multi_true_false_check(test_check, vars):
             print("whoops, try again.")
             return
     
-def float_check(test_check, vars):
-    if eval(test_check[0][-1].strip(),vars) == float(test_check[1][0]):
+def final_check(test_check, vars):
+    if str(eval(test_check[0][-1].strip(),vars)) == test_check[1][0]:
         print("Correct!")
     else:
         print("whoops, try again.")
@@ -46,7 +46,7 @@ def grade_question(question, vars):
                     elif "True" in test_check[1][0] or "False" in test_check[1][0]: 
                         true_false_check(test_check, vars)
                     else:
-                        float_check(test_check, vars)
+                        final_check(test_check, vars)
                 elif len(test_check[1]) > 1:
                     table_check(test_check, vars)
                 elif test_check[1][0].count("True") > 1 or test_check[1][0].count("False") > 1:
@@ -54,6 +54,6 @@ def grade_question(question, vars):
                 elif "True" in test_check[1][0] or "False" in test_check[1][0]:
                     true_false_check(test_check, vars)
                 else:
-                    float_check(test_check, vars)
+                    final_check(test_check, vars)
 
 
